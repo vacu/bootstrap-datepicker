@@ -93,7 +93,7 @@
 		this.element = $(element);
 		this.isInline = false;
 		this.isInput = this.element.is('input');
-		this.component = this.element.is('.date') ? this.element.find('.add-on, .input-group-addon, .btn') : false;
+		this.component = this.element.is(this.o.whereClass) ? this.element.find('.add-on, .input-group-addon, .btn') : false;
 		this.hasInput = this.component && this.element.find('input').length;
 		if(this.component && this.component.length === 0)
 			this.component = false;
@@ -198,7 +198,7 @@
 
 			o.weekStart %= 7;
 			o.weekEnd = ((o.weekStart + 6) % 7);
-
+      o.whereClass = '.date';
 			var format = DPGlobal.parseFormat(o.format);
 			if (o.startDate !== -Infinity) {
 				if (!!o.startDate) {
